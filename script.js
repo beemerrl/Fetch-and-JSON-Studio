@@ -12,7 +12,7 @@ window.addEventListener("load", function () {
                     <h3>${json[i].firstName} ${json[i].lastName}</h3>
                     <ul>
                         <li>Hours in space: ${json[i].hoursInSpace}</li>
-                        <li>Active: ${json[i].active}</li>
+                        <li id="status">Active: ${json[i].active}</li>
                         <li>Skills: ${json[i].skills}</li>
                     </ul>
                     </div>
@@ -20,6 +20,24 @@ window.addEventListener("load", function () {
                 </div>
                 `
             }
+
+            console.log(div);
+
+            let astroCount = document.getElementById("astronautCount");
+            astroCount.innerHTML = `Astronaut Count: ${json.length}`;
+
+            //console.log(document.querySelectorAll("#status")[0].innerHTML);
+
+            for (let i = 0; i < json.length; i++) {
+                if (document.querySelectorAll("#status")[i].innerHTML === "Active: true") {
+                    document.querySelectorAll("#status")[i].style.color = "green";
+                }
+            }
+
+
+
         })
+
+
     })
 });
